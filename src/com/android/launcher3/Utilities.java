@@ -140,8 +140,8 @@ public final class Utilities {
     public static final String DESKTOP_SHOW_LABEL = "pref_desktop_show_label";
     public static final String ALLAPPS_SHOW_LABEL = "pref_allapps_show_label";
     public static final String ICON_SIZE = "pref_icon_size";
-    public static final String KEY_HIDDEN_APPS = "hidden-app";
-    public static final String KEY_HIDDEN_APPS_SET = "hidden-app-set";
+    public static final String KEY_HIDDEN_APPS = "hidden_app";
+    public static final String KEY_HIDDEN_APPS_SET = "hidden_app_set";
     public static final String PREF_NOTIFICATIONS_GESTURE = "pref_notifications_gesture";
 
     public static boolean useNotificationsGesture(Context context) {
