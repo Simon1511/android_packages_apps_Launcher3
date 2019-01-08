@@ -702,11 +702,14 @@ public final class Utilities {
     }
 
     public static boolean showQSB(Context context) {
+        return false;
+/*
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
         if (!LauncherAppState.getInstanceNoCreate().isSearchAppAvailable()) {
             return false;
         }
         return prefs.getBoolean(Homescreen.KEY_SHOW_SEARCHBAR, true);
+*/
     }
 
     public static void restart(final Context context) {
