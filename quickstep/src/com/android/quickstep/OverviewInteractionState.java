@@ -28,10 +28,12 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.RemoteException;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.support.annotation.WorkerThread;
 import android.util.Log;
 
+import com.android.internal.util.crdroid.Utils;
 import com.android.launcher3.MainThreadExecutor;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.allapps.DiscoveryBounce;
@@ -39,6 +41,8 @@ import com.android.launcher3.util.UiThreadHelper;
 import com.android.systemui.shared.recents.ISystemUiProxy;
 
 import java.util.concurrent.ExecutionException;
+
+import lineageos.providers.LineageSettings;
 
 /**
  * Sets overview interaction flags, such as:
@@ -212,6 +216,8 @@ public class OverviewInteractionState {
         public void register() {
             mResolver.registerContentObserver(Settings.Secure.getUriFor(SWIPE_UP_SETTING_NAME),
                     false, this);
+            mResolver.registerContentObserver(LineageSettings.System.getUriFor(LineageSettings.System.FORCE_SHOW_NAVBAR),
+                    false, this);
             mSwipeUpEnabled = getValue();
             resetHomeBounceSeenOnQuickstepEnabledFirstTime();
         }
@@ -224,7 +230,12 @@ public class OverviewInteractionState {
         }
 
         private boolean getValue() {
-            return Settings.Secure.getInt(mResolver, SWIPE_UP_SETTING_NAME, defaultValue) == 1;
+            boolean mNavBarVisible = LineageSettings.System.getIntForUser(mResolver,
+                LineageSettings.System.FORCE_SHOW_NAVBAR,
+                Utils.hasNavbarByDefault(mContext) ? 1 : 0, UserHandle.USER_CURRENT) != 0;
+            boolean mSwipeUpEnabled = Settings.Secure.getIntForUser(mResolver, SWIPE_UP_SETTING_NAME,
+                defaultValue, UserHandle.USER_CURRENT) == 1;
+            return mNavBarVisible && mSwipeUpEnabled;
         }
     }
 
