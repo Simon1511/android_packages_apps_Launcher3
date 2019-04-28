@@ -33,7 +33,6 @@ import android.preference.SwitchPreference;
 import android.view.MenuItem;
 
 import com.android.internal.util.crdroid.Utils;
-import com.android.launcher3.quickspace.QuickspaceController;
 
 public class SettingsHomescreen extends SettingsActivity implements PreferenceFragment.OnPreferenceStartFragmentCallback {
 
@@ -201,14 +200,6 @@ public class SettingsHomescreen extends SettingsActivity implements PreferenceFr
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
                     int index = dateSpacing.findIndexOfValue((String) newValue);
                     dateSpacing.setSummary(dateSpacing.getEntries()[index]);
-                    LauncherAppState.getInstanceNoCreate().setNeedsRestart();
-                    return true;
-                }
-            });
-
-            SwitchPreference showWeather = (SwitchPreference) findPreference(Utilities.WEATHER_ENABLED);
-            showWeather.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
                     LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                     return true;
                 }
