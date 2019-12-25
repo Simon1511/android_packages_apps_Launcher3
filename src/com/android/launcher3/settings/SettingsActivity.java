@@ -33,8 +33,8 @@ import com.android.launcher3.LauncherFiles;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.config.FeatureFlags;
-import com.android.launcher3.lineage.LineageLauncherCallbacks;
-import com.android.launcher3.lineage.LineageUtils;
+import com.android.launcher3.crdroid.crDroidHomeCallbacks;
+import com.android.launcher3.crdroid.crDroidUtils;
 import com.android.launcher3.uioverrides.plugins.PluginManagerWrapper;
 import com.android.launcher3.util.SecureSettingsObserver;
 
@@ -208,8 +208,8 @@ public class SettingsActivity extends Activity
                             PluginManagerWrapper.hasPlugins(getContext());
 
                 case KEY_MINUS_ONE:
-                    return LineageUtils.hasPackageInstalled(getActivity(),
-                            LineageLauncherCallbacks.SEARCH_PACKAGE);
+                    return crDroidUtils.hasPackageInstalled(getActivity(),
+                            crDroidHomeCallbacks.SEARCH_PACKAGE);
             }
 
             return true;

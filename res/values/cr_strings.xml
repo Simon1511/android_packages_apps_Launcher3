@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2018 The LineageOS Project
+<!-- Copyright (C) 2019 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 -->
 <resources>
     <!-- Application name -->
-    <string name="lineageos_app_name" translatable="false">Trebuchet</string>
+    <string name="crdroid_app_name" translatable="false">crDroid Home</string>
 
     <!-- Settings -->
 

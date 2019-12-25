@@ -1,10 +1,10 @@
-package com.android.launcher3.lineage;
+package com.android.launcher3.crdroid;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
-public class LineageUtils {
+public class crDroidUtils {
 
     public static boolean hasPackageInstalled(Context context, String pkgName) {
         try {

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The LineageOS Project
+ * Copyright (C) 2019 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.launcher3.lineage;
+package com.android.launcher3.crdroid;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -34,18 +34,18 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class LineageLauncherCallbacks implements LauncherCallbacks,
+public class crDroidHomeCallbacks implements LauncherCallbacks,
         OnSharedPreferenceChangeListener, OnDeviceProfileChangeListener {
         public static final String KEY_ENABLE_MINUS_ONE = "pref_enable_minus_one";
         public static final String SEARCH_PACKAGE = "com.google.android.googlequicksearchbox";
 
-    private final LineageLauncher mLauncher;
+    private final crDroidHome mLauncher;
 
     private OverlayCallbackImpl mOverlayCallbacks;
     private LauncherClient mLauncherClient;
     private boolean mDeferCallbacks;
 
-    public LineageLauncherCallbacks(LineageLauncher launcher) {
+    public crDroidHomeCallbacks(crDroidHome launcher) {
         mLauncher = launcher;
     }
 
